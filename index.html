@@ -120,7 +120,6 @@
             text-decoration: none;
             color: inherit;
             display: block;
-            animation: fadeInUp 0.6s ease;
         }
         
         .topic-card:hover {
@@ -273,9 +272,14 @@
             opacity: 0.95;
         }
         
+        /* Animations */
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { 
+                opacity: 0; 
+            }
+            to { 
+                opacity: 1; 
+            }
         }
         
         @keyframes fadeInDown {
@@ -304,6 +308,19 @@
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
         }
+        
+        /* Smooth reveal on load */
+        .topic-card {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .topic-card:nth-child(1) { animation-delay: 0.1s; }
+        .topic-card:nth-child(2) { animation-delay: 0.2s; }
+        .topic-card:nth-child(3) { animation-delay: 0.3s; }
+        .topic-card:nth-child(4) { animation-delay: 0.4s; }
+        .topic-card:nth-child(5) { animation-delay: 0.5s; }
+        .topic-card:nth-child(6) { animation-delay: 0.6s; }
         
         @media (max-width: 768px) {
             .dashboard-header h1 { font-size: 2em; }
@@ -552,26 +569,41 @@
         updateCountdown();
         setInterval(updateCountdown, 1000);
         
-        // Animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-        
+        // Simple scroll reveal animation
         document.addEventListener('DOMContentLoaded', () => {
-            const cards = document.querySelectorAll('.topic-card, .stat-card, .tip-item');
-            cards.forEach(card => {
-                observer.observe(card);
+            // Fade in elements on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+            
+            // Add reveal class to elements that should fade in
+            const revealElements = document.querySelectorAll('.stat-card, .tip-item');
+            revealElements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                el.style.transitionDelay = `${index * 0.1}s`;
+                observer.observe(el);
             });
+            
+            // Add visible style
+            const style = document.createElement('style');
+            style.textContent = `
+                .visible {
+                    opacity: 1 !important;
+                    transform: translateY(0) !important;
+                }
+            `;
+            document.head.appendChild(style);
         });
     </script>
 </body>
