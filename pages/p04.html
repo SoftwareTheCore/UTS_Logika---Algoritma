@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 4 - Perulangan</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-button">← Kembali ke Beranda</a>
+        
+        <header>
+            <h1>🔄 Pertemuan 4</h1>
+            <p>Struktur Kontrol - Perulangan (Looping)</p>
+        </header>
+
+        <div class="content-section">
+            <h2>🔁 Apa itu Perulangan?</h2>
+            <p>Perulangan (loop) adalah struktur yang <strong>mengulang perintah berkali-kali</strong> sampai kondisi tertentu terpenuhi.</p>
+
+            <div class="example-box">
+                <strong>Analogi:</strong><br>
+                Bayangkan Anda diminta menulis "Saya akan belajar" sebanyak 100 kali.<br>
+                Tanpa loop: tulis 100 kali manual 😫<br>
+                Dengan loop: suruh komputer ulangi 100 kali otomatis! 😊
+            </div>
+
+            <h3>🔢 Jenis Perulangan di Python</h3>
+
+            <h2>1️⃣ FOR LOOP</h2>
+            <p>Digunakan ketika <strong>jumlah perulangan sudah diketahui/pasti</strong></p>
+
+            <div class="highlight-box">
+                <strong>Syntax Dasar:</strong><br><br>
+                <code>
+                for variabel in range(n):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;pernyataan
+                </code>
+            </div>
+
+            <h3>📝 Memahami range()</h3>
+            <ul>
+                <li><code>range(5)</code> → 0, 1, 2, 3, 4 (5 angka, mulai dari 0)</li>
+                <li><code>range(1, 6)</code> → 1, 2, 3, 4, 5 (dari 1 sampai 5)</li>
+                <li><code>range(1, 10, 2)</code> → 1, 3, 5, 7, 9 (loncat 2)</li>
+                <li><code>range(10, 0, -1)</code> → 10, 9, 8, ..., 1 (mundur)</li>
+            </ul>
+
+            <div class="example-box">
+                <strong>Contoh 1: Cetak 1 sampai 5</strong><br><br>
+                <code>
+                for i in range(1, 6):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print(i)<br>
+                <br>
+                # Output:<br>
+                # 1<br>
+                # 2<br>
+                # 3<br>
+                # 4<br>
+                # 5
+                </code>
+            </div>
+
+            <div class="example-box">
+                <strong>Contoh 2: Hitung Total 1+2+3+4+5</strong><br><br>
+                <code>
+                total = 0<br>
+                for i in range(1, 6):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;total = total + i<br>
+                print(f"Total: {total}")<br>
+                <br>
+                # Output: Total: 15
+                </code>
+            </div>
+
+            <div class="example-box">
+                <strong>Contoh 3: Tabel Perkalian</strong><br><br>
+                <code>
+                angka = 5<br>
+                for i in range(1, 11):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print(f"{angka} x {i} = {angka * i}")<br>
+                <br>
+                # Output:<br>
+                # 5 x 1 = 5<br>
+                # 5 x 2 = 10<br>
+                # ...<br>
+                # 5 x 10 = 50
+                </code>
+            </div>
+
+            <h2>2️⃣ WHILE LOOP</h2>
+            <p>Digunakan ketika <strong>jumlah perulangan belum diketahui</strong>, tergantung kondisi</p>
+
+            <div class="highlight-box">
+                <strong>Syntax:</strong><br><br>
+                <code>
+                while kondisi:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;pernyataan<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;update_variabel  # PENTING! Jangan lupa!
+                </code>
+            </div>
+
+            <div class="example-box">
+                <strong>Contoh 1: Cetak 1 sampai 5</strong><br><br>
+                <code>
+                i = 1<br>
+                while i <= 5:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print(i)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;i = i + 1  # atau i += 1<br>
+                <br>
+                # Output: 1 2 3 4 5
+                </code>
+            </div>
+
+            <div class="example-box">
+                <strong>Contoh 2: Input sampai benar</strong><br><br>
+                <code>
+                password = ""<br>
+                while password != "1234":<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;password = input("Masukkan password: ")<br>
+                <br>
+                print("Password benar! Akses diberikan")
+                </code>
+            </div>
+
+            <div class="highlight-box">
+                <strong>⚠️ BAHAYA: Infinite Loop!</strong><br><br>
+                <code>
+                # JANGAN LAKUKAN INI!<br>
+                i = 1<br>
+                while i <= 5:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print(i)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;# Lupa i += 1, loop tidak pernah berhenti!
+                </code><br>
+                <strong>Solusi:</strong> Pastikan ada statement yang membuat kondisi jadi False!
+            </div>
+
+            <h3>🛑 BREAK dan CONTINUE</h3>
+
+            <h4>BREAK - Keluar dari loop paksa</h4>
+            <div class="example-box">
+                <code>
+                for i in range(1, 11):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if i == 5:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break  # Berhenti saat i = 5<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print(i)<br>
+                <br>
+                # Output: 1 2 3 4 (berhenti sebelum 5)
+                </code>
+            </div>
+
+            <h4>CONTINUE - Lompat ke iterasi berikutnya</h4>
+            <div class="example-box">
+                <code>
+                for i in range(1, 6):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if i == 3:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue  # Lewati angka 3<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print(i)<br>
+                <br>
+                # Output: 1 2 4 5 (3 dilewati)
+                </code>
+            </div>
+
+            <h3>🔄🔄 Nested Loop (Loop Bersarang)</h3>
+            <p>Loop di dalam loop - untuk pola 2 dimensi atau tabel</p>
+
+            <div class="example-box">
+                <strong>Contoh 1: Pola Bintang</strong><br><br>
+                <code>
+                for i in range(3):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;for j in range(5):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("*", end="")<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print()  # Pindah baris<br>
+                <br>
+                # Output:<br>
+                # *****<br>
+                # *****<br>
+                # *****
+                </code>
+            </div>
+
+            <div class="example-box">
+                <strong>Contoh 2: Pola Segitiga</strong><br><br>
+                <code>
+                for i in range(1, 6):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;for j in range(i):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("*", end="")<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print()<br>
+                <br>
+                # Output:<br>
+                # *<br>
+                # **<br>
+                # ***<br>
+                # ****<br>
+                # *****
+                </code>
+            </div>
+
+            <div class="example-box">
+                <strong>Contoh 3: Tabel Perkalian Lengkap</strong><br><br>
+                <code>
+                for i in range(1, 4):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;for j in range(1, 4):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(f"{i} x {j} = {i*j}")<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print("---")<br>
+                </code>
+            </div>
+
+            <h3>⚖️ FOR vs WHILE - Kapan Pakai?</h3>
+            <table style="width:100%; border-collapse: collapse; margin: 20px 0;">
+                <tr style="background: #667eea; color: white;">
+                    <th style="padding: 10px; border: 1px solid #ddd;">FOR</th>
+                    <th style="padding: 10px; border: 1px solid #ddd;">WHILE</th>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Jumlah iterasi pasti</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Jumlah iterasi tidak pasti</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Cetak 1-100</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Input sampai benar</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Proses array/list</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Game loop</td>
+                </tr>
+            </table>
+
+            <h3>🎯 Contoh Soal Umum</h3>
+
+            <div class="example-box">
+                <strong>Soal: Hitung faktorial dari n</strong><br>
+                Faktorial 5! = 5 × 4 × 3 × 2 × 1 = 120<br><br>
+                <code>
+                n = 5<br>
+                faktorial = 1<br>
+                <br>
+                for i in range(1, n+1):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;faktorial = faktorial * i<br>
+                <br>
+                print(f"{n}! = {faktorial}")<br>
+                # Output: 5! = 120
+                </code>
+            </div>
+
+            <div class="example-box">
+                <strong>Soal: Cek bilangan prima</strong><br><br>
+                <code>
+                angka = 7<br>
+                prima = True<br>
+                <br>
+                for i in range(2, angka):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if angka % i == 0:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prima = False<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break<br>
+                <br>
+                if prima:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print(f"{angka} adalah bilangan prima")<br>
+                else:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print(f"{angka} bukan bilangan prima")
+                </code>
+            </div>
+
+            <div class="highlight-box">
+                <strong>💡 Tips Penting untuk UTS:</strong>
+                <ul>
+                    <li><code>range(n)</code> dimulai dari 0 sampai n-1</li>
+                    <li><code>range(1, n+1)</code> untuk 1 sampai n</li>
+                    <li>WHILE harus ada kondisi yang membuat loop berhenti</li>
+                    <li><code>break</code> keluar dari loop, <code>continue</code> lompat iterasi</li>
+                    <li>Nested loop: loop luar berjalan 1x, loop dalam berjalan penuh</li>
+                    <li><code>print(..., end="")</code> untuk cetak tanpa pindah baris</li>
+                </ul>
+            </div>
+
+            <a href="../assets/207-P04.pdf" class="pdf-link" target="_blank">📄 Lihat PDF Asli</a>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 3 - Percabangan</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-button">← Kembali ke Beranda</a>
+        
+        <header>
+            <h1>🔀 Pertemuan 3</h1>
+            <p>Struktur Kontrol - Percabangan (Branching)</p>
+        </header>
+
+        <div class="content-section">
+            <h2>🛣️ Apa itu Percabangan?</h2>
+            <p>Percabangan adalah struktur yang memungkinkan program <strong>memilih jalur</strong> berdasarkan kondisi tertentu. Seperti di persimpangan jalan - pilih kiri atau kanan?</p>
+
+            <div class="example-box">
+                <strong>Analogi Sederhana:</strong><br>
+                "Jika hujan, bawa payung. Jika tidak hujan, tidak perlu payung."<br>
+                Ini adalah percabangan dalam kehidupan sehari-hari!
+            </div>
+
+            <h3>1️⃣ IF Sederhana</h3>
+            <p>Hanya mengecek satu kondisi, jika True maka jalankan perintah</p>
+            
+            <div class="highlight-box">
+                <strong>Syntax:</strong><br><br>
+                <code>
+                if kondisi:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;pernyataan
+                </code>
+            </div>
+
+            <div class="example-box">
+                <strong>Contoh:</strong><br><br>
+                <code>
+                nilai = 85<br>
+                if nilai >= 70:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print("Selamat! Anda LULUS")<br>
+                <br>
+                # Output: Selamat! Anda LULUS
+                </code>
+            </div>
+
+            <h3>2️⃣ IF-ELSE</h3>
+            <p>Ada 2 pilihan: jika kondisi True jalankan A, jika False jalankan B</p>
+
+            <div class="highlight-box">
+                <strong>Syntax:</strong><br><br>
+                <code>
+                if kondisi:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;pernyataan_jika_true<br>
+                else:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;pernyataan_jika_false
+                </code>
+            </div>
+
+            <div class="example-box">
+                <strong>Contoh 1: Cek Genap/Ganjil</strong><br><br>
+                <code>
+                angka = 7<br>
+                if angka % 2 == 0:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print("GENAP")<br>
+                else:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print("GANJIL")<br>
+                <br>
+                # Output: GANJIL
+                </code>
+            </div>
+
+            <div class="example-box">
+                <strong>Contoh 2: Cek Kelulusan</strong><br><br>
+                <code>
+                nilai = 65<br>
+                if nilai >= 70:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print("LULUS")<br>
+                else:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print("TIDAK LULUS")<br>
+                <br>
+                # Output: TIDAK LULUS
+                </code>
+            </div>
+
+            <h3>3️⃣ IF-ELIF-ELSE</h3>
+            <p>Ada BANYAK pilihan kondisi. Cek dari atas ke bawah, yang pertama True akan dijalankan</p>
+
+            <div class="highlight-box">
+                <strong>Syntax:</strong><br><br>
+                <code>
+                if kondisi1:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;pernyataan1<br>
+                elif kondisi2:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;pernyataan2<br>
+                elif kondisi3:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;pernyataan3<br>
+                else:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;pernyataan_terakhir
+                </code>
+            </div>
+
+            <div class="example-box">
+                <strong>Contoh: Konversi Nilai ke Grade</strong><br><br>
+                <code>
+                nilai = 78<br>
+                <br>
+                if nilai >= 80:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade = "A"<br>
+                elif nilai >= 70:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade = "B"<br>
+                elif nilai >= 60:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade = "C"<br>
+                elif nilai >= 50:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade = "D"<br>
+                else:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade = "E"<br>
+                <br>
+                print(f"Grade Anda: {grade}")<br>
+                # Output: Grade Anda: B
+                </code>
+            </div>
+
+            <h3>4️⃣ Nested IF (IF Bersarang)</h3>
+            <p>IF di dalam IF - untuk kondisi yang lebih kompleks dan bertingkat</p>
+
+            <div class="example-box">
+                <strong>Contoh: Cek Kelulusan dengan Syarat Ganda</strong><br><br>
+                <code>
+                nilai = 85<br>
+                absen = 80<br>
+                <br>
+                if nilai >= 70:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if absen >= 75:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("LULUS")<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("TIDAK LULUS - Absen kurang")<br>
+                else:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print("TIDAK LULUS - Nilai kurang")<br>
+                <br>
+                # Output: LULUS
+                </code>
+            </div>
+
+            <h3>🔗 Kombinasi dengan Operator Logika</h3>
+            <p>Lebih simpel menggunakan <code>and</code>, <code>or</code>, <code>not</code></p>
+
+            <div class="example-box">
+                <strong>Dengan AND:</strong><br><br>
+                <code>
+                nilai = 85<br>
+                absen = 80<br>
+                <br>
+                if nilai >= 70 and absen >= 75:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print("LULUS")<br>
+                else:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print("TIDAK LULUS")<br>
+                <br>
+                # Lebih simpel dari nested if!
+                </code>
+            </div>
+
+            <div class="example-box">
+                <strong>Dengan OR:</strong><br><br>
+                <code>
+                hari = "Sabtu"<br>
+                <br>
+                if hari == "Sabtu" or hari == "Minggu":<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print("Weekend - Libur!")<br>
+                else:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print("Hari kerja")
+                </code>
+            </div>
+
+            <h3>🎯 Contoh Kasus Lengkap</h3>
+
+            <div class="example-box">
+                <strong>Program: Menentukan Jenis Bilangan</strong><br><br>
+                <code>
+                angka = int(input("Masukkan angka: "))<br>
+                <br>
+                if angka > 0:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print("Bilangan POSITIF")<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if angka % 2 == 0:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Bilangan GENAP")<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Bilangan GANJIL")<br>
+                elif angka < 0:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print("Bilangan NEGATIF")<br>
+                else:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print("Bilangan NOL")<br>
+                </code>
+            </div>
+
+            <h3>🎲 Flowchart Percabangan</h3>
+            <p>Dalam flowchart, percabangan digambarkan dengan <strong>belah ketupat (◇)</strong></p>
+            <ul>
+                <li>Dari belah ketupat keluar 2 garis: Ya dan Tidak</li>
+                <li>Jalur Ya menuju ke blok jika kondisi benar</li>
+                <li>Jalur Tidak menuju ke blok jika kondisi salah</li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>💡 Tips Penting untuk UTS:</strong>
+                <ul>
+                    <li>IF-ELIF-ELSE dicek dari ATAS ke BAWAH</li>
+                    <li>Yang pertama True akan dijalankan, sisanya diabaikan</li>
+                    <li>ELSE tidak wajib, tapi IF-ELIF harus ada kondisi</li>
+                    <li>Indentasi (spasi di awal) SANGAT PENTING di Python!</li>
+                    <li>Untuk kondisi ganda, pakai <code>and</code>/<code>or</code> lebih baik dari nested if</li>
+                </ul>
+            </div>
+
+            <h3>🧪 Latihan Trace</h3>
+            <p>Coba trace (ikuti langkah) kode berikut:</p>
+
+            <div class="example-box">
+                <code>
+                x = 15<br>
+                y = 10<br>
+                <br>
+                if x > y:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if x % 2 == 0:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("A")<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("B")<br>
+                else:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print("C")<br>
+                <br>
+                # Output: B (karena x > y True, tapi x genap False)
+                </code>
+            </div>
+
+            <a href="../assets/207-P03.pdf" class="pdf-link" target="_blank">📄 Lihat PDF Asli</a>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

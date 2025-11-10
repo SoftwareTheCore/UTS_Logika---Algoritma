@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 6 - Fungsi & Prosedur</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-button">← Kembali ke Beranda</a>
+        
+        <header>
+            <h1>⚙️ Pertemuan 6</h1>
+            <p>Fungsi & Prosedur (Function)</p>
+        </header>
+
+        <div class="content-section">
+            <h2>🎯 Apa itu Fungsi?</h2>
+            <p><strong>Fungsi</strong> adalah blok kode yang dapat <strong>digunakan berulang kali</strong> tanpa harus menulis ulang. Seperti resep yang bisa dipakai kapan saja!</p>
+
+            <div class="example-box">
+                <strong>Analogi:</strong><br>
+                Bayangkan Anda sering perlu menghitung luas persegi panjang.<br>
+                Tanpa fungsi: Tulis rumus berulang-ulang 😫<br>
+                Dengan fungsi: Buat sekali, pakai berkali-kali! 😊
+            </div>
+
+            <h3>🔧 Membuat Fungsi</h3>
+
+            <div class="highlight-box">
+                <strong>Syntax Dasar:</strong><br><br>
+                <code>
+                def nama_fungsi(parameter1, parameter2):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;# Kode yang dijalankan<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return hasil
+                </code>
+            </div>
+
+            <h3>📝 Fungsi Tanpa Parameter dan Return</h3>
+            <div class="example-box">
+                <code>
+                def sapa():<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print("Halo! Selamat datang")<br>
+                <br>
+                # Memanggil fungsi<br>
+                sapa()  # Output: Halo! Selamat datang<br>
+                sapa()  # Output: Halo! Selamat datang
+                </code>
+            </div>
+
+            <h3>📥 Fungsi Dengan Parameter</h3>
+            <p>Parameter = input yang diterima fungsi</p>
+
+            <div class="example-box">
+                <code>
+                def sapa_nama(nama):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print(f"Halo, {nama}!")<br>
+                <br>
+                sapa_nama("Budi")   # Output: Halo, Budi!<br>
+                sapa_nama("Ani")    # Output: Halo, Ani!
+                </code>
+            </div>
+
+            <div class="example-box">
+                <strong>Fungsi dengan banyak parameter:</strong><br><br>
+                <code>
+                def tambah(a, b):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;hasil = a + b<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print(f"{a} + {b} = {hasil}")<br>
+                <br>
+                tambah(5, 3)   # Output: 5 + 3 = 8<br>
+                tambah(10, 20) # Output: 10 + 20 = 30
+                </code>
+            </div>
+
+            <h3>📤 Fungsi Dengan Return</h3>
+            <p><code>return</code> mengembalikan nilai dari fungsi</p>
+
+            <div class="example-box">
+                <code>
+                def luas_persegi(sisi):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return sisi * sisi<br>
+                <br>
+                hasil = luas_persegi(5)<br>
+                print(f"Luas: {hasil}")  # Output: Luas: 25<br>
+                <br>
+                # Bisa langsung dipakai<br>
+                print(luas_persegi(10))  # Output: 100
+                </code>
+            </div>
+
+            <div class="example-box">
+                <strong>Return banyak nilai:</strong><br><br>
+                <code>
+                def hitung_lingkaran(r):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;keliling = 2 * 3.14 * r<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;luas = 3.14 * r * r<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return keliling, luas<br>
+                <br>
+                k, l = hitung_lingkaran(7)<br>
+                print(f"Keliling: {k}, Luas: {l}")
+                </code>
+            </div>
+
+            <h3>🎛️ Parameter Default</h3>
+            <p>Nilai default jika parameter tidak diisi</p>
+
+            <div class="example-box">
+                <code>
+                def sapa(nama, salam="Halo"):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print(f"{salam}, {nama}!")<br>
+                <br>
+                sapa("Budi")              # Output: Halo, Budi!<br>
+                sapa("Ani", "Selamat pagi")  # Output: Selamat pagi, Ani!
+                </code>
+            </div>
+
+            <h3>🔄 Rekursif - Fungsi Memanggil Dirinya Sendiri</h3>
+            <p>Teknik dimana fungsi memanggil dirinya sendiri sampai kondisi tertentu</p>
+
+            <div class="highlight-box">
+                <strong>⚠️ Yang Penting dalam Rekursif:</strong>
+                <ul>
+                    <li><strong>Base Case:</strong> Kondisi berhenti (wajib ada!)</li>
+                    <li><strong>Recursive Case:</strong> Pemanggilan diri sendiri dengan parameter berbeda</li>
+                </ul>
+            </div>
+
+            <h4>Contoh 1: Faktorial</h4>
+            <p>Faktorial 5! = 5 × 4 × 3 × 2 × 1 = 120</p>
+
+            <div class="example-box">
+                <code>
+                def faktorial(n):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;# Base case<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if n == 0 or n == 1:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 1<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;# Recursive case<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return n * faktorial(n - 1)<br>
+                <br>
+                print(faktorial(5))  # Output: 120<br>
+                <br>
+                # Proses:<br>
+                # 5! = 5 × faktorial(4)<br>
+                # 4! = 4 × faktorial(3)<br>
+                # 3! = 3 × faktorial(2)<br>
+                # 2! = 2 × faktorial(1)<br>
+                # 1! = 1 (base case)
+                </code>
+            </div>
+
+            <h4>Contoh 2: Fibonacci</h4>
+            <p>Deret: 0, 1, 1, 2, 3, 5, 8, 13, 21, ...</p>
+
+            <div class="example-box">
+                <code>
+                def fibonacci(n):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;# Base case<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if n <= 1:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return n<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;# Recursive case<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return fibonacci(n-1) + fibonacci(n-2)<br>
+                <br>
+                # Cetak 10 angka fibonacci pertama<br>
+                for i in range(10):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print(fibonacci(i), end=" ")<br>
+                # Output: 0 1 1 2 3 5 8 13 21 34
+                </code>
+            </div>
+
+            <h4>Contoh 3: Pangkat</h4>
+            <p>Hitung x^y menggunakan rekursif</p>
+
+            <div class="example-box">
+                <code>
+                def pangkat(x, y):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;# Base case<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if y == 0:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 1<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;# Recursive case<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return x * pangkat(x, y-1)<br>
+                <br>
+                print(pangkat(2, 5))  # Output: 32 (2^5)
+                </code>
+            </div>
+
+            <h4>Contoh 4: Jumlah 1 sampai n</h4>
+            <div class="example-box">
+                <code>
+                def jumlah(n):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if n == 1:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 1<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return n + jumlah(n-1)<br>
+                <br>
+                print(jumlah(5))  # Output: 15 (1+2+3+4+5)
+                </code>
+            </div>
+
+            <h3>🆚 Iterasi vs Rekursif</h3>
+            
+            <div class="example-box">
+                <strong>Faktorial dengan FOR (Iterasi):</strong><br><br>
+                <code>
+                def faktorial_iterasi(n):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;hasil = 1<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;for i in range(1, n+1):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hasil *= i<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return hasil
+                </code>
+            </div>
+
+            <div class="example-box">
+                <strong>Faktorial dengan Rekursif:</strong><br><br>
+                <code>
+                def faktorial_rekursif(n):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if n <= 1:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 1<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return n * faktorial_rekursif(n-1)
+                </code>
+            </div>
+
+            <table style="width:100%; border-collapse: collapse; margin: 20px 0;">
+                <tr style="background: #667eea; color: white;">
+                    <th style="padding: 10px; border: 1px solid #ddd;">Iterasi</th>
+                    <th style="padding: 10px; border: 1px solid #ddd;">Rekursif</th>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Pakai loop (for/while)</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Fungsi panggil dirinya</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Lebih cepat</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Lebih lambat (overhead)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Kode lebih panjang</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Kode lebih singkat</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Lebih mudah dipahami</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Perlu pemahaman mendalam</td>
+                </tr>
+            </table>
+
+            <h3>🎯 Contoh Soal Lengkap</h3>
+
+            <div class="example-box">
+                <strong>Soal 1: Fungsi Cek Bilangan Prima</strong><br><br>
+                <code>
+                def adalah_prima(n):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if n < 2:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return False<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;for i in range(2, n):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if n % i == 0:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return False<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return True<br>
+                <br>
+                print(adalah_prima(7))   # True<br>
+                print(adalah_prima(10))  # False
+                </code>
+            </div>
+
+            <div class="example-box">
+                <strong>Soal 2: Fungsi Hitung Rata-rata List</strong><br><br>
+                <code>
+                def rata_rata(list_nilai):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if len(list_nilai) == 0:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 0<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;total = sum(list_nilai)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return total / len(list_nilai)<br>
+                <br>
+                nilai = [80, 85, 90, 75]<br>
+                print(f"Rata-rata: {rata_rata(nilai)}")<br>
+                # Output: Rata-rata: 82.5
+                </code>
+            </div>
+
+            <div class="example-box">
+                <strong>Soal 3: Fungsi Balik String dengan Rekursif</strong><br><br>
+                <code>
+                def balik_string(teks):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if len(teks) == 0:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return teks<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return teks[-1] + balik_string(teks[:-1])<br>
+                <br>
+                print(balik_string("HELLO"))  # Output: OLLEH
+                </code>
+            </div>
+
+            <div class="highlight-box">
+                <strong>💡 Tips Penting untuk UTS:</strong>
+                <ul>
+                    <li>Fungsi dengan <code>return</code> mengembalikan nilai, tanpa <code>return</code> hanya eksekusi</li>
+                    <li>Parameter = yang diterima, Argumen = yang dikirim</li>
+                    <li>Rekursif <strong>HARUS</strong> punya base case!</li>
+                    <li>Faktorial paling sering keluar di soal rekursif</li>
+                    <li><code>def</code> untuk definisi, panggil dengan <code>nama_fungsi()</code></li>
+                    <li>Variabel di dalam fungsi = lokal (tidak bisa diakses luar)</li>
+                </ul>
+            </div>
+
+            <h3>📋 Rangkuman Rumus Rekursif Umum</h3>
+            <div class="highlight-box">
+                <strong>Faktorial:</strong> <code>n! = n × (n-1)!</code> dengan base case <code>1! = 1</code><br><br>
+                <strong>Fibonacci:</strong> <code>F(n) = F(n-1) + F(n-2)</code> dengan base <code>F(0)=0, F(1)=1</code><br><br>
+                <strong>Pangkat:</strong> <code>x^y = x × x^(y-1)</code> dengan base case <code>x^0 = 1</code><br><br>
+                <strong>Jumlah:</strong> <code>Sum(n) = n + Sum(n-1)</code> dengan base case <code>Sum(1) = 1</code>
+            </div>
+
+            <a href="../assets/207-P06.pdf" class="pdf-link" target="_blank">📄 Lihat PDF Asli</a>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

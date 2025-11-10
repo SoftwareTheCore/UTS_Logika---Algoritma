@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 2 - Variabel & Tipe Data</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-button">← Kembali ke Beranda</a>
+        
+        <header>
+            <h1>🔢 Pertemuan 2</h1>
+            <p>Variabel, Tipe Data & Operator</p>
+        </header>
+
+        <div class="content-section">
+            <h2>📦 Apa itu Variabel?</h2>
+            <p>Variabel adalah <strong>tempat menyimpan data</strong> di memori komputer. Bayangkan seperti kotak yang bisa diisi dan diberi label.</p>
+
+            <div class="example-box">
+                <strong>Contoh Variabel:</strong><br><br>
+                <code>
+                nama = "Budi"           # Variabel nama berisi "Budi"<br>
+                umur = 20               # Variabel umur berisi 20<br>
+                tinggi = 175.5          # Variabel tinggi berisi 175.5<br>
+                adalah_mahasiswa = True # Variabel boolean
+                </code>
+            </div>
+
+            <h3>📝 Aturan Penamaan Variabel</h3>
+            <ul>
+                <li>✅ Harus diawali dengan huruf atau underscore (_)</li>
+                <li>✅ Bisa mengandung huruf, angka, dan underscore</li>
+                <li>✅ Case-sensitive (umur ≠ Umur)</li>
+                <li>❌ Tidak boleh pakai spasi</li>
+                <li>❌ Tidak boleh pakai kata reserved Python (if, for, while, dll)</li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>Contoh yang Benar:</strong> nama, umur, nilai_total, nilai1<br>
+                <strong>Contoh yang Salah:</strong> 1nama, nilai total, if, for
+            </div>
+
+            <h3>🎨 Tipe Data di Python</h3>
+
+            <h4>1. Integer (Bilangan Bulat)</h4>
+            <p>Angka tanpa koma, bisa positif atau negatif</p>
+            <div class="example-box">
+                <code>
+                umur = 20<br>
+                suhu = -5<br>
+                jumlah = 1000
+                </code>
+            </div>
+
+            <h4>2. Float (Bilangan Desimal)</h4>
+            <p>Angka dengan koma (titik desimal)</p>
+            <div class="example-box">
+                <code>
+                nilai = 85.5<br>
+                pi = 3.14159<br>
+                berat = 65.7
+                </code>
+            </div>
+
+            <h4>3. String (Teks)</h4>
+            <p>Kumpulan karakter yang diapit tanda petik (' atau ")</p>
+            <div class="example-box">
+                <code>
+                nama = "Budi"<br>
+                kota = 'Jakarta'<br>
+                pesan = "Selamat belajar Python!"
+                </code>
+            </div>
+
+            <h4>4. Boolean</h4>
+            <p>Nilai True (benar) atau False (salah)</p>
+            <div class="example-box">
+                <code>
+                lulus = True<br>
+                sudah_menikah = False<br>
+                aktif = True
+                </code>
+            </div>
+
+            <h3>🔄 Konversi Tipe Data (Type Casting)</h3>
+            <p>Mengubah dari satu tipe ke tipe lainnya:</p>
+            <ul>
+                <li><code>int()</code> - Ubah ke integer</li>
+                <li><code>float()</code> - Ubah ke float</li>
+                <li><code>str()</code> - Ubah ke string</li>
+            </ul>
+
+            <div class="example-box">
+                <strong>Contoh:</strong><br><br>
+                <code>
+                angka = "100"           # String<br>
+                angka_int = int(angka)  # Jadi 100 (integer)<br>
+                <br>
+                nilai = 85              # Integer<br>
+                nilai_str = str(nilai)  # Jadi "85" (string)
+                </code>
+            </div>
+
+            <h3>➕ Operator Aritmatika</h3>
+            <ul>
+                <li><code>+</code> Penjumlahan: <code>5 + 3 = 8</code></li>
+                <li><code>-</code> Pengurangan: <code>5 - 3 = 2</code></li>
+                <li><code>*</code> Perkalian: <code>5 * 3 = 15</code></li>
+                <li><code>/</code> Pembagian: <code>10 / 3 = 3.333...</code></li>
+                <li><code>//</code> Pembagian bulat: <code>10 // 3 = 3</code></li>
+                <li><code>%</code> Modulus (sisa bagi): <code>10 % 3 = 1</code></li>
+                <li><code>**</code> Pangkat: <code>2 ** 3 = 8</code></li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>🎯 Trik Modulus untuk Genap/Ganjil:</strong><br>
+                <code>
+                bil % 2 == 0  # Bilangan GENAP<br>
+                bil % 2 == 1  # Bilangan GANJIL
+                </code>
+            </div>
+
+            <h3>⚖️ Operator Perbandingan</h3>
+            <p>Menghasilkan nilai True atau False</p>
+            <ul>
+                <li><code>==</code> Sama dengan: <code>5 == 5</code> → True</li>
+                <li><code>!=</code> Tidak sama dengan: <code>5 != 3</code> → True</li>
+                <li><code>></code> Lebih besar: <code>5 > 3</code> → True</li>
+                <li><code><</code> Lebih kecil: <code>3 < 5</code> → True</li>
+                <li><code>>=</code> Lebih besar sama dengan: <code>5 >= 5</code> → True</li>
+                <li><code><=</code> Lebih kecil sama dengan: <code>3 <= 5</code> → True</li>
+            </ul>
+
+            <h3>🔗 Operator Logika</h3>
+            <ul>
+                <li><code>and</code> - Kedua kondisi harus True</li>
+                <li><code>or</code> - Salah satu kondisi True sudah cukup</li>
+                <li><code>not</code> - Membalik nilai (True jadi False, dst)</li>
+            </ul>
+
+            <div class="example-box">
+                <strong>Contoh:</strong><br><br>
+                <code>
+                nilai = 85<br>
+                absen = 80<br>
+                <br>
+                # Lulus jika nilai >= 70 DAN absen >= 75<br>
+                lulus = (nilai >= 70) and (absen >= 75)  # True
+                </code>
+            </div>
+
+            <h3>📥 Input dan Output</h3>
+            
+            <h4>Output dengan print()</h4>
+            <div class="example-box">
+                <code>
+                print("Hello World")<br>
+                print("Nilai:", 85)<br>
+                print(f"Nama saya {nama}")  # f-string
+                </code>
+            </div>
+
+            <h4>Input dari user</h4>
+            <div class="example-box">
+                <code>
+                nama = input("Masukkan nama: ")<br>
+                umur = int(input("Masukkan umur: "))<br>
+                # input() selalu menghasilkan string!
+                </code>
+            </div>
+
+            <div class="highlight-box">
+                <strong>💡 Tips Penting:</strong>
+                <ul>
+                    <li><code>input()</code> selalu mengembalikan STRING, jadi perlu dikonversi jika butuh angka</li>
+                    <li>Gunakan <code>%</code> untuk cek genap/ganjil atau kelipatan</li>
+                    <li>Hati-hati perbedaan <code>/</code> dan <code>//</code></li>
+                    <li>Operator <code>==</code> untuk perbandingan, <code>=</code> untuk assignment</li>
+                </ul>
+            </div>
+
+            <a href="../assets/207-P02.pdf" class="pdf-link" target="_blank">📄 Lihat PDF Asli</a>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

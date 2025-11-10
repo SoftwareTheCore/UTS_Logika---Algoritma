@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 5 - Array & List</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-button">← Kembali ke Beranda</a>
+        
+        <header>
+            <h1>📦 Pertemuan 5</h1>
+            <p>Array & Struktur Data Dasar (List)</p>
+        </header>
+
+        <div class="content-section">
+            <h2>📚 Apa itu List/Array?</h2>
+            <p><strong>List</strong> adalah struktur data yang bisa <strong>menyimpan banyak nilai</strong> dalam satu variabel. Bayangkan seperti kotak bersekat!</p>
+
+            <div class="example-box">
+                <strong>Analogi:</strong><br>
+                Tanpa List: <code>nilai1 = 80, nilai2 = 85, nilai3 = 90</code> (ribet!)<br>
+                Dengan List: <code>nilai = [80, 85, 90]</code> (lebih rapi!)
+            </div>
+
+            <h3>🎯 Membuat List</h3>
+            
+            <div class="highlight-box">
+                <strong>Cara Membuat:</strong><br><br>
+                <code>
+                # List kosong<br>
+                list_kosong = []<br>
+                <br>
+                # List dengan nilai<br>
+                angka = [1, 2, 3, 4, 5]<br>
+                nama = ["Budi", "Ani", "Citra"]<br>
+                campuran = [1, "Dua", 3.0, True]  # Bisa beda tipe!
+                </code>
+            </div>
+
+            <h3>🔢 Index dalam List</h3>
+            <p>Setiap elemen dalam list punya <strong>nomor posisi (index)</strong>, dimulai dari <strong>0</strong>!</p>
+
+            <div class="example-box">
+                <code>
+                buah = ["Apel", "Jeruk", "Mangga", "Pisang"]<br>
+                #        0        1        2         3<br>
+                <br>
+                print(buah[0])   # Apel<br>
+                print(buah[2])   # Mangga<br>
+                print(buah[-1])  # Pisang (index negatif = dari belakang)
+                </code>
+            </div>
+
+            <h3>➕ Menambah Elemen</h3>
+
+            <h4>1. append() - Tambah di akhir</h4>
+            <div class="example-box">
+                <code>
+                nilai = [80, 85]<br>
+                nilai.append(90)<br>
+                print(nilai)  # [80, 85, 90]
+                </code>
+            </div>
+
+            <h4>2. insert() - Tambah di posisi tertentu</h4>
+            <div class="example-box">
+                <code>
+                nilai = [80, 90]<br>
+                nilai.insert(1, 85)  # Sisipkan 85 di index 1<br>
+                print(nilai)  # [80, 85, 90]
+                </code>
+            </div>
+
+            <h3>➖ Menghapus Elemen</h3>
+
+            <h4>1. remove() - Hapus berdasarkan nilai</h4>
+            <div class="example-box">
+                <code>
+                buah = ["Apel", "Jeruk", "Mangga"]<br>
+                buah.remove("Jeruk")<br>
+                print(buah)  # ["Apel", "Mangga"]
+                </code>
+            </div>
+
+            <h4>2. pop() - Hapus berdasarkan index</h4>
+            <div class="example-box">
+                <code>
+                nilai = [80, 85, 90]<br>
+                nilai.pop(1)  # Hapus index 1 (85)<br>
+                print(nilai)  # [80, 90]<br>
+                <br>
+                nilai.pop()  # Tanpa parameter = hapus terakhir<br>
+                print(nilai)  # [80]
+                </code>
+            </div>
+
+            <h4>3. del - Hapus elemen atau seluruh list</h4>
+            <div class="example-box">
+                <code>
+                angka = [1, 2, 3, 4, 5]<br>
+                del angka[2]  # Hapus index 2<br>
+                print(angka)  # [1, 2, 4, 5]
+                </code>
+            </div>
+
+            <h3>✏️ Mengubah Elemen</h3>
+            <div class="example-box">
+                <code>
+                nilai = [80, 85, 70]<br>
+                nilai[2] = 90  # Ubah index 2 dari 70 jadi 90<br>
+                print(nilai)  # [80, 85, 90]
+                </code>
+            </div>
+
+            <h3>📏 Fungsi-fungsi Berguna</h3>
+
+            <div class="example-box">
+                <code>
+                angka = [5, 2, 8, 1, 9]<br>
+                <br>
+                len(angka)      # 5 (panjang list)<br>
+                max(angka)      # 9 (nilai terbesar)<br>
+                min(angka)      # 1 (nilai terkecil)<br>
+                sum(angka)      # 25 (total semua elemen)<br>
+                <br>
+                angka.sort()    # [1, 2, 5, 8, 9] (urut naik)<br>
+                angka.reverse() # [9, 8, 5, 2, 1] (balik urutan)
+                </code>
+            </div>
+
+            <h3>🔄 Looping pada List</h3>
+
+            <h4>Cara 1: Loop dengan elemen langsung</h4>
+            <div class="example-box">
+                <code>
+                buah = ["Apel", "Jeruk", "Mangga"]<br>
+                <br>
+                for b in buah:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print(b)<br>
+                <br>
+                # Output:<br>
+                # Apel<br>
+                # Jeruk<br>
+                # Mangga
+                </code>
+            </div>
+
+            <h4>Cara 2: Loop dengan index</h4>
+            <div class="example-box">
+                <code>
+                nilai = [80, 85, 90]<br>
+                <br>
+                for i in range(len(nilai)):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print(f"Nilai ke-{i}: {nilai[i]}")<br>
+                <br>
+                # Output:<br>
+                # Nilai ke-0: 80<br>
+                # Nilai ke-1: 85<br>
+                # Nilai ke-2: 90
+                </code>
+            </div>
+
+            <h3>🔍 Mencari dalam List</h3>
+
+            <h4>Cek keberadaan dengan 'in'</h4>
+            <div class="example-box">
+                <code>
+                buah = ["Apel", "Jeruk", "Mangga"]<br>
+                <br>
+                if "Jeruk" in buah:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print("Jeruk ada!")<br>
+                <br>
+                if "Durian" not in buah:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print("Durian tidak ada")
+                </code>
+            </div>
+
+            <h4>Cari index dengan index()</h4>
+            <div class="example-box">
+                <code>
+                buah = ["Apel", "Jeruk", "Mangga"]<br>
+                posisi = buah.index("Jeruk")<br>
+                print(posisi)  # 1
+                </code>
+            </div>
+
+            <h4>Hitung kemunculan dengan count()</h4>
+            <div class="example-box">
+                <code>
+                angka = [1, 2, 3, 2, 4, 2]<br>
+                jumlah = angka.count(2)<br>
+                print(jumlah)  # 3 (angka 2 muncul 3 kali)
+                </code>
+            </div>
+
+            <h3>✂️ Slicing - Memotong List</h3>
+            <p>Mengambil sebagian elemen dari list</p>
+
+            <div class="example-box">
+                <code>
+                angka = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]<br>
+                <br>
+                angka[2:5]    # [2, 3, 4] (index 2 sampai 4)<br>
+                angka[:3]     # [0, 1, 2] (dari awal sampai index 2)<br>
+                angka[5:]     # [5, 6, 7, 8, 9] (dari index 5 sampai akhir)<br>
+                angka[::2]    # [0, 2, 4, 6, 8] (loncat 2)<br>
+                angka[::-1]   # [9, 8, 7, ..., 0] (balik list)
+                </code>
+            </div>
+
+            <h3>🎯 Contoh Kasus Lengkap</h3>
+
+            <div class="example-box">
+                <strong>Soal 1: Hitung Rata-rata Nilai</strong><br><br>
+                <code>
+                nilai = [80, 85, 90, 75, 88]<br>
+                <br>
+                total = sum(nilai)<br>
+                rata = total / len(nilai)<br>
+                <br>
+                print(f"Rata-rata: {rata}")<br>
+                # Output: Rata-rata: 83.6
+                </code>
+            </div>
+
+            <div class="example-box">
+                <strong>Soal 2: Cari Nilai Tertinggi dan Terendah</strong><br><br>
+                <code>
+                nilai = [80, 95, 70, 88, 92]<br>
+                <br>
+                tertinggi = max(nilai)<br>
+                terendah = min(nilai)<br>
+                <br>
+                print(f"Tertinggi: {tertinggi}")<br>
+                print(f"Terendah: {terendah}")<br>
+                # Output: Tertinggi: 95, Terendah: 70
+                </code>
+            </div>
+
+            <div class="example-box">
+                <strong>Soal 3: Filter Nilai Lulus (>= 70)</strong><br><br>
+                <code>
+                nilai = [65, 80, 55, 90, 75]<br>
+                lulus = []<br>
+                <br>
+                for n in nilai:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if n >= 70:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lulus.append(n)<br>
+                <br>
+                print(f"Yang lulus: {lulus}")<br>
+                # Output: Yang lulus: [80, 90, 75]
+                </code>
+            </div>
+
+            <div class="example-box">
+                <strong>Soal 4: Balik Urutan List</strong><br><br>
+                <code>
+                angka = [1, 2, 3, 4, 5]<br>
+                <br>
+                # Cara 1<br>
+                angka.reverse()<br>
+                print(angka)  # [5, 4, 3, 2, 1]<br>
+                <br>
+                # Cara 2<br>
+                angka_balik = angka[::-1]<br>
+                print(angka_balik)  # [5, 4, 3, 2, 1]
+                </code>
+            </div>
+
+            <h3>📋 List 2 Dimensi (Matrix)</h3>
+            <p>List di dalam list - seperti tabel!</p>
+
+            <div class="example-box">
+                <code>
+                # Matrix 3x3<br>
+                matrix = [<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;[1, 2, 3],<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;[4, 5, 6],<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;[7, 8, 9]<br>
+                ]<br>
+                <br>
+                print(matrix[0][0])  # 1 (baris 0, kolom 0)<br>
+                print(matrix[1][2])  # 6 (baris 1, kolom 2)<br>
+                <br>
+                # Cetak semua elemen<br>
+                for baris in matrix:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;for elemen in baris:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(elemen, end=" ")<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print()
+                </code>
+            </div>
+
+            <div class="highlight-box">
+                <strong>💡 Tips Penting untuk UTS:</strong>
+                <ul>
+                    <li>Index dimulai dari <strong>0</strong>, bukan 1!</li>
+                    <li><code>len(list)</code> = panjang list</li>
+                    <li><code>append()</code> tambah di akhir, <code>insert()</code> sisipkan di tengah</li>
+                    <li><code>list[i]</code> akses elemen, <code>list[a:b]</code> slicing</li>
+                    <li>Hati-hati <code>IndexError</code> kalau akses index yang tidak ada!</li>
+                    <li><code>sort()</code> ubah list asli, <code>sorted()</code> buat list baru</li>
+                </ul>
+            </div>
+
+            <a href="../assets/207-P05.pdf" class="pdf-link" target="_blank">📄 Lihat PDF Asli</a>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
